@@ -26,16 +26,24 @@ List<Map> doctors = [
 ];
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  final void Function() onPressedScheduleCard;
+
+  const HomeTab({
+    Key? key,
+    required this.onPressedScheduleCard,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 30),
         child: ListView(
           children: [
+            SizedBox(
+              height: 20,
+            ),
             UserIntro(),
             SizedBox(
               height: 10,
@@ -70,7 +78,9 @@ class HomeTab extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            AppointmentCard(),
+            AppointmentCard(
+              onTap: onPressedScheduleCard,
+            ),
             SizedBox(
               height: 20,
             ),
@@ -179,8 +189,11 @@ class TopDoctorCard extends StatelessWidget {
 }
 
 class AppointmentCard extends StatelessWidget {
+  final void Function() onTap;
+
   const AppointmentCard({
     Key? key,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -188,44 +201,52 @@ class AppointmentCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(20),
           width: double.infinity,
           decoration: BoxDecoration(
             color: Color(MyColors.primary),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/doctor01.jpeg'),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Dr.Muhammed Syahid',
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                        'Dental Specialist',
-                        style: TextStyle(color: Color(MyColors.text01)),
-                      ),
-                    ],
-                  ),
-                ],
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onTap,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage('assets/doctor01.jpeg'),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Dr.Muhammed Syahid',
+                                style: TextStyle(color: Colors.white)),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              'Dental Specialist',
+                              style: TextStyle(color: Color(MyColors.text01)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ScheduleCard(),
+                  ],
+                ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              ScheduleCard(),
-            ],
+            ),
           ),
         ),
         Container(

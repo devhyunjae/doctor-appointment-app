@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/colors.dart';
 import 'package:medicare/tabs/HomeTab.dart';
-// import 'package:medicare/widgets/DoctorDetail.dart';
+import 'package:medicare/tabs/ScheduleTab.dart';
 import 'package:medicare/widgets/SliverDoctorDetail.dart';
 
 void main() {
@@ -40,15 +40,27 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  void goToSchedule() {
+    setState(() {
+      _selectedIndex = 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
-      HomeTab(),
-      Text('WIP'),
+      HomeTab(
+        onPressedScheduleCard: goToSchedule,
+      ),
+      ScheduleTab(),
     ];
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(MyColors.primary),
+        elevation: 0,
+        toolbarHeight: 0,
+      ),
       body: SafeArea(
         child: screens[_selectedIndex],
       ),
