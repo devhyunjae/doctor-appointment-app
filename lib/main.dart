@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/colors.dart';
 import 'package:medicare/tabs/HomeTab.dart';
+// import 'package:medicare/widgets/DoctorDetail.dart';
+import 'package:medicare/widgets/SliverDoctorDetail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +14,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+        final MediaQueryData data = MediaQuery.of(context);
+        return MediaQuery(
+          data: data.copyWith(textScaleFactor: 1.0),
+          child: child!,
+        );
+      },
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/detail': (context) => SliverDoctorDetail(),
+      },
     );
   }
 }

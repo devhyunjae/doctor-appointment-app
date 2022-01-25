@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/colors.dart';
+import 'package:medicare/styles.dart';
 
 List<Map> doctors = [
   {
@@ -32,7 +33,7 @@ class HomeTab extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: ListView(
           children: [
             UserIntro(),
@@ -52,9 +53,7 @@ class HomeTab extends StatelessWidget {
               children: [
                 Text(
                   'Appointment Today',
-                  style: TextStyle(
-                      color: Color(MyColors.header01),
-                      fontWeight: FontWeight.bold),
+                  style: kTitleStyle,
                 ),
                 TextButton(
                   child: Text(
@@ -114,7 +113,9 @@ class TopDoctorCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.only(bottom: 20),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, '/detail');
+        },
         child: Row(
           children: [
             Container(
