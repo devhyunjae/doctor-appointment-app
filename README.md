@@ -1,16 +1,11 @@
-# medicare
+# Medicare
 
-A new Flutter project.
+Medicare is a doctor appointment app. Written in Flutter. Inspired by Dribbble.
 
-## Getting Started
+![base-image](https://cdn.dribbble.com/users/2492254/screenshots/16622245/media/395dbb07798a3958a972898d1e91b504.png?compress=1&resize=800x600&vertical=top)
 
-This project is a starting point for a Flutter application.
+## Design
+- [Inspired by Dribbble](https://dribbble.com/shots/16622245-Medicare-Doctor-Appointment-App)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+MIT
