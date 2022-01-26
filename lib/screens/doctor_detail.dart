@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:medicare/colors.dart';
-import 'package:medicare/styles.dart';
+import 'package:medicare/styles/colors.dart';
+import 'package:medicare/styles/styles.dart';
 import "package:latlong2/latlong.dart" as latLng;
 
 class SliverDoctorDetail extends StatelessWidget {

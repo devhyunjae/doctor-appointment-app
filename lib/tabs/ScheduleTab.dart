@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medicare/colors.dart';
-import 'package:medicare/styles.dart';
-import 'package:medicare/tabs/HomeTab.dart';
+import 'package:medicare/styles/colors.dart';
+import 'package:medicare/styles/styles.dart';
 
 class ScheduleTab extends StatefulWidget {
   const ScheduleTab({Key? key}) : super(key: key);
